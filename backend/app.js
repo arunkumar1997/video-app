@@ -14,9 +14,6 @@ const authRouter = require('./routes/auth')
 var SQLiteStore = require('connect-sqlite3')(session);
 var app = express();
 
-// view engine setup
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'jade');
 
 app.locals.pluralize = require('pluralize');
 
@@ -32,8 +29,10 @@ app.use(session({
   saveUninitialized: false, // don't create session until something stored
   store: new SQLiteStore({ db: 'sessions.db', dir: './sessions' })
 }));
+
 app.use(passport.authenticate('session'));
-// app.use(csrf());
+
+
 app.use(function (req, res, next) {
   var msgs = req.session.messages || [];
   res.locals.messages = msgs;
@@ -41,10 +40,7 @@ app.use(function (req, res, next) {
   req.session.messages = [];
   next();
 });
-// app.use(function (req, res, next) {
-//   res.locals.csrfToken = req.csrfToken();
-//   next();
-// });
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/auth', authRouter)
@@ -53,7 +49,6 @@ app.use('/auth', authRouter)
 app.use(function (req, res, next) {
   next(createError(404, { message: 'method not found' }));
 });
-
 
 
 // error handler

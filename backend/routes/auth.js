@@ -75,5 +75,4 @@ router.post('/local/signup', Validator('signup'), async function (req, res, next
 })
 
 
-
 module.exports = router
