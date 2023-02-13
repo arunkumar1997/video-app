@@ -1,7 +1,7 @@
 import React from "react";
-import Styled from "./styles";
+import styles from "./styles.module.css";
 const AppLayout = (props: any) => {
-  return <Styled.Layout>{props.children}</Styled.Layout>;
+  return <div className={styles.layout}>{props.children}</div>;
 };
 
 export default AppLayout;

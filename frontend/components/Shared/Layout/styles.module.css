@@ -1,0 +1,9 @@
+.layout {
+  min-height: calc(100vh);
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+}

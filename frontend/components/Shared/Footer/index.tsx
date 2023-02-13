@@ -1,12 +1,8 @@
 import React from "react";
-import { Card } from "@geist-ui/core";
+import styles from "@/components/Shared/Footer/styles.module.css";
 
 const Footer = (props: any) => {
-  return (
-    <Card shadow width="100%">
-      Footer
-    </Card>
-  );
+  return <div className={styles.footer}></div>;
 };
 
 export default Footer;
